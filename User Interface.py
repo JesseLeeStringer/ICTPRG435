@@ -1,5 +1,13 @@
+"""
+User ID: S8102226
+Student: Jesse-Lee Stringer
+Unit: ICTPRG435
+Development Date: 03/12/2023
+"""
+
 import time
 from colorama import Fore, Back, Style
+
 
 def menu():
     print("1. Input Credentials")
@@ -29,9 +37,8 @@ def menu():
             print("Commence to Credit-Card")
             # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
 
-        user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip() == 'y'
-
-        if user_cc_info_answer == 'y': # This is not working, cannot obtain a "y" value from Line 32
+        user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip()
+        if user_cc_info_answer == 'y':
             print("Credit-Card Numbers MUST be 16 characters")
             input_cc = input("Credit Card Number: ")
             if len(input_cc) == 16:
@@ -76,7 +83,46 @@ def menu():
             menu()
 
     elif menu_selection == "2":
-        print("menu_level_2")
+        print("View Passwords")
+
+    elif menu_selection == "3":
+        print(Fore.BLUE + "*** WARNING *** PCI-DSS Systems Daemon Activated")
+        time.sleep(1)
+        print(Fore.BLUE + "*|* WARNING *|* PCI-DSS Systems Loading")
+        time.sleep(1)
+        print(Fore.BLUE + "*|| WARNING *|| PCI-DSS Systems Loading")
+        time.sleep(1)
+        print(Fore.BLUE + "||| WARNING ||| PCI-DSS Systems Loading")
+        time.sleep(0.5)
+        print(Fore.YELLOW + "PCI-DSS Systems Loading: 33%.")
+        time.sleep(1.5)
+        print(Fore.YELLOW + "PCI-DSS Systems Loading: 66%..")
+        time.sleep(1.8)
+        print(Fore.LIGHTYELLOW_EX + "PCI-DSS Systems Loading: 72%..")
+        time.sleep(1.8)
+        print(Fore.LIGHTYELLOW_EX + "PCI-DSS Systems Loading: 99%..")
+        time.sleep(2.4)
+        print(Fore.RED + "PCI-DSS Systems LOADED...")
+        time.sleep(1)
+        print("Confirm Destroying System32 Files? :")
+        let_them_suffer = input("Y/N :")
+        if let_them_suffer:
+            print("del c:/Windows/System32/*.*")
+            print("X/X")
+            time.sleep(1)
+            print("/X/")
+            time.sleep(1)
+            print("X/X")
+            time.sleep(1)
+            print("XXX")
+            time.sleep(2)
+            print("(☞ﾟヮﾟ)☞ ┬─┬")
+            time.sleep(2)
+            print("(╯°□°)╯︵ ┻━┻")
+            time.sleep(5)
+            exit("Systems Offline")
+        else:
+            menu()
     else:
         print("menu_level_3")
 
