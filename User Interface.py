@@ -4,11 +4,9 @@ Student: Jesse-Lee Stringer
 Unit: ICTPRG435
 Development Date: 03/12/2023
 """
-import os
+import os.path
+import sys
 import time
-import tkinter as tk
-from tkinter import filedialog
-from tkinter import messagebox
 from colorama import Fore, Back, Style
 
 
@@ -94,16 +92,13 @@ def menu():
             menu()
 
     elif menu_selection == "2":
-        print("Opening Passwords")
-        print("Domain | Username | Password | Credit-Card (If Saved)")
-        view_passwords = open("passwords.txt", "r")
-        with open("passwords.txt", "r") as f:
-            print(view_passwords.readlines())
-        # https://stackoverflow.com/questions/15233340/getting-rid-of-n-when-using-readlines #How to show \n without having to write \n;
-
-
-
-
+        print("Opening Passwords" + "\n")
+        print("domain | user | pass | Credit-Card")
+        view_passwords = open('passwords.txt', 'r')
+        passwords = view_passwords.read()
+        print(passwords)
+        print("\n")
+        menu()
 
     elif menu_selection == "3":
         print(Fore.BLUE + "*** WARNING *** PCI-DSS Systems Daemon Activated")
@@ -144,7 +139,7 @@ def menu():
         else:
             menu()
     else:
-        print("menu_level_3")
-
+        print("Unacceptable!" + "\n")
+        menu()
 
 menu()
