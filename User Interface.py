@@ -1,5 +1,5 @@
 import time
-
+from colorama import Fore, Back, Style
 
 def menu():
     print("1. Input Credentials")
@@ -29,13 +29,12 @@ def menu():
             print("Commence to Credit-Card")
             # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
 
-        user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip() in ["yes", "y"]
+        user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip() == 'y'
 
-        if user_cc_info_answer == "y":
+        if user_cc_info_answer == 'y': # This is not working, cannot obtain a "y" value from Line 32
             print("Credit-Card Numbers MUST be 16 characters")
             input_cc = input("Credit Card Number: ")
             if len(input_cc) == 16:
-                print("Credit-Card ending in", input_cc[-4:], "Saved Successfully")
                 user_cc_display = input_cc
                 text_file = open("passwords.txt", "a")
                 with open('passwords.txt', 'a') as file:
@@ -46,7 +45,7 @@ def menu():
                     l4 = input_cc
                 text_file.writelines([l0, l1, " | ", l2, " | ", l3, " | ", l4])
                 text_file.close()
-                print("The following Information has been saved: (L49")
+                print("The following Information has been saved: L49")
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
                 print("\n\n\n", input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
@@ -66,14 +65,15 @@ def menu():
             text_file = open("passwords.txt", "a")
             with open('passwords.txt', 'a') as file:
                 l0 = '\n'
-                l1 = "domain.com"  # input_url
-                l2 = "user"  # input_user
-                l3 = "pass"  # input_password
+                l1 = input_url  # input_url
+                l2 = input_user  # input_user
+                l3 = input_password  # input_password
             text_file.writelines([l0, l1, " | ", l2, " | ", l3])
             text_file.close()
-            print("The following Information has been saved:")
-            print(input_url, "|", "User: ", input_user)
-            exit("Information Saved to file ")
+            print("The following Information has been saved: L73")
+            print(input_url, "|", input_user)
+            print("Information Saved to file ")
+            menu()
 
     elif menu_selection == "2":
         print("menu_level_2")
