@@ -4,8 +4,11 @@ Student: Jesse-Lee Stringer
 Unit: ICTPRG435
 Development Date: 03/12/2023
 """
-
+import os
 import time
+import tkinter as tk
+from tkinter import filedialog
+from tkinter import messagebox
 from colorama import Fore, Back, Style
 
 
@@ -32,14 +35,13 @@ def menu():
         if input_password != input_password_confirm:
             exit("Passwords do not match!")
         else:
-            print("password match")
-            print("\n")
+            print("password match" + "\n")
             print("Commence to Credit-Card")
-            # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
 
+        # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
         user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip()
         if user_cc_info_answer == 'y':
-            print("Credit-Card Numbers MUST be 16 characters")
+            print("\n" + "Credit-Card Numbers MUST be 16 characters")
             input_cc = input("Credit Card Number: ")
             if len(input_cc) == 16:
                 user_cc_display = input_cc
@@ -52,10 +54,14 @@ def menu():
                     l4 = input_cc
                 text_file.writelines([l0, l1, " | ", l2, " | ", l3, " | ", l4])
                 text_file.close()
-                print("The following Information has been saved: L49")
+                print("The following Information is being saved: (L57)" + "\n")
+                time.sleep(3) # Sleep for 3 Seconds to imply data saved
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
-                print("\n\n\n", input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
+                print("########################################")
+                print("url | user | Credit Card Ending")
+                print(input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
+                print("########################################")
                 exit("Information Saved to file ")
             else:
                 time.sleep(0.2)  # Wait for 3 Seconds #https://ioflood.com/blog/python-wait/
@@ -83,7 +89,11 @@ def menu():
             menu()
 
     elif menu_selection == "2":
-        print("View Passwords")
+        print("Opening Passwords")
+        time.sleep(2)
+        view_passwords = open("passwords.txt", "r")
+        print(view_passwords.readlines())
+
 
     elif menu_selection == "3":
         print(Fore.BLUE + "*** WARNING *** PCI-DSS Systems Daemon Activated")

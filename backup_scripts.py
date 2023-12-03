@@ -1,3 +1,25 @@
+import tkinter as tk
+from tkinter import messagebox
+from tkinter import filedialog
+
+
+def openfile():
+    filename = filedialog.askopenfilename(initialdir="/",
+                                          title="Open File",
+                                          filetypes=(("Text Files", "*.txt"), ("All Files", "*.*")))
+    try:
+        if filename:
+            the_file = open(filename)
+            textArea.insert(tk.END, the_file.read())
+            the_file.close()
+        elif filename == '':
+            messagebox.showinfo("Cancel", "You clicked Cancel")
+    except IOError:
+        messagebox.showinfo("Error", "Could not open file")
+
+
+form = tk.Tk()
+form.title("Passwords")
 
 '''
 def user_menu_selection():
