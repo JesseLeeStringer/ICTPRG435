@@ -12,6 +12,7 @@ from tkinter import messagebox
 from colorama import Fore, Back, Style
 
 
+
 def menu():
     print("1. Input Credentials")
     print("2. View Passwords")
@@ -40,9 +41,14 @@ def menu():
 
         # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
         user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip()
+
         if user_cc_info_answer == 'y':
             print("\n" + "Credit-Card Numbers MUST be 16 characters")
             input_cc = input("Credit Card Number: ")
+
+            # https://stackoverflow.com/questions/40688156/python-credit-card-validation
+            # Use Luhn Algo for CC Correct
+
             if len(input_cc) == 16:
                 user_cc_display = input_cc
                 text_file = open("passwords.txt", "a")
