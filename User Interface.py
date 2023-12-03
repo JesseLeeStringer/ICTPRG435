@@ -15,7 +15,7 @@ def menu():
     print("2. View Passwords")
     print("3. View Credit-Card")
     print("4. Exit")
-    menu_selection = input("Please choose: ")
+    menu_selection = input("Please select 1-4: ")
 
     if menu_selection == "1":
         print("Input Credentials")
@@ -28,13 +28,13 @@ def menu():
         print("Confirming:", input_url, " | ", input_user)
 
         # Requires Passwords to Match
-        input_password = input("password: ")
-        input_password_confirm = input("confirm password: ")
+        input_password = input("Password: ")
+        input_password_confirm = input("Confirm Password: ")
         if input_password != input_password_confirm:
             exit("Passwords do not match!")
         else:
-            print("password match" + "\n")
-            print("Commence to Credit-Card")
+            print(Fore.RED + "Password Confirmed" + "\n")
+            print(Style.RESET_ALL + "Commence to Credit-Card")
 
         # https://stackoverflow.com/questions/48817461/user-input-boolean-in-python
         user_cc_info_answer = input('Do you need to save a Credit-Card? (Y/N) : ').lower().strip()
@@ -44,7 +44,7 @@ def menu():
             input_cc = input("Credit Card Number: ")
 
             # https://stackoverflow.com/questions/40688156/python-credit-card-validation
-            # Use Luhn Algo for CC Correct
+            # Use Luhn Algo for CC Validation
 
             if len(input_cc) == 16:
                 user_cc_display = input_cc
@@ -62,15 +62,15 @@ def menu():
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
                 print("########################################")
-                print("url | user | Credit Card Ending")
-                print(input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
-                print("########################################")
+                print(Fore.RED + "url | user | Credit Card Ending")
+                print(Fore.RED + input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
+                print(Style.RESET_ALL + "########################################")
                 exit("Information Saved to file ")
             else:
                 time.sleep(0.2)  # Wait for 3 Seconds #https://ioflood.com/blog/python-wait/
-                print("*** Error! 16 characters are required! ***")
+                print(Fore.RED + "*** Error! 16 characters are required! ***")
                 time.sleep(1)  # Wait for 1 Seconds
-                print("-> Please Try Again")
+                print(Style.RESET_ALL + "-> Please Try Again")
                 time.sleep(1)  # Wait for 1 Seconds
                 print("...")
                 print(" ..")
@@ -86,9 +86,11 @@ def menu():
                 l3 = input_password  # input_password
             text_file.writelines([l0, l1, " | ", l2, " | ", l3])
             text_file.close()
-            print("The following Information has been saved: L73")
-            print(input_url, "|", input_user)
-            print("Information Saved to file ")
+            print("The following Information has been saved: L89" + "\n")
+            print("########################################")
+            print(Fore.RED + input_url, "|", input_user)
+            print(Fore.RED + "Information Saved to file")
+            print(Style.RESET_ALL + "########################################" + "\n")
             menu()
 
     elif menu_selection == "2":
