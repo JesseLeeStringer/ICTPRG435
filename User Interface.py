@@ -3,6 +3,7 @@ User ID: S8102226
 Student: Jesse-Lee Stringer
 Unit: ICTPRG435
 Development Date: 03/12/2023
+Source: https://github.com/JesseLeeStringer/ICTPRG435
 """
 import os.path
 import sys
@@ -62,8 +63,8 @@ def menu():
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
                 print("########################################")
-                print(Fore.RED + "url | user | Credit Card Ending")
                 print(Fore.RED + input_url, "|", input_user, "|", "XXXX XXXX XXXX", user_cc_display[-4:])
+                print("url | user | Credit Card Ending")
                 print(Style.RESET_ALL + "########################################")
                 exit("Information Saved to file ")
             else:
@@ -89,7 +90,7 @@ def menu():
             print("The following Information has been saved: L89" + "\n")
             print("########################################")
             print(Fore.RED + input_url, "|", input_user)
-            print(Fore.RED + "Information Saved to file")
+            print("Information Saved to file")
             print(Style.RESET_ALL + "########################################" + "\n")
             menu()
 
@@ -143,5 +144,6 @@ def menu():
     else:
         print("Unacceptable!" + "\n")
         menu()
+
 
 menu()
