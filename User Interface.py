@@ -12,7 +12,6 @@ from tkinter import messagebox
 from colorama import Fore, Back, Style
 
 
-
 def menu():
     print("1. Input Credentials")
     print("2. View Passwords")
@@ -61,7 +60,7 @@ def menu():
                 text_file.writelines([l0, l1, " | ", l2, " | ", l3, " | ", l4])
                 text_file.close()
                 print("The following Information is being saved: (L57)" + "\n")
-                time.sleep(3) # Sleep for 3 Seconds to imply data saved
+                time.sleep(3)  # Sleep for 3 Seconds to imply data saved
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
                 print("########################################")
@@ -96,9 +95,14 @@ def menu():
 
     elif menu_selection == "2":
         print("Opening Passwords")
-        time.sleep(2)
+        print("Domain | Username | Password | Credit-Card (If Saved)")
         view_passwords = open("passwords.txt", "r")
-        print(view_passwords.readlines())
+        with open("passwords.txt", "r") as f:
+            print(view_passwords.readlines())
+        # https://stackoverflow.com/questions/15233340/getting-rid-of-n-when-using-readlines #How to show \n without having to write \n;
+
+
+
 
 
     elif menu_selection == "3":
