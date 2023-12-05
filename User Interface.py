@@ -58,7 +58,7 @@ def menu():  # Give the user an option of four choices.
                     l4 = input_cc
                 text_file.writelines([l0, l1, " | ", l2, " | ", l3, " | ", l4])
                 text_file.close()
-                print("The following Information is being saved: (L57)" + "\n")
+                print("The following Information is being saved: (L61)" + "\n")
                 time.sleep(3)  # Sleep for 3 Seconds to imply data saved
                 # Important [-4:] colon must be AFTER -4 Digits or prior digits display Ref:
                 # http://codepad.org/S3zjnKoD
@@ -88,7 +88,7 @@ def menu():  # Give the user an option of four choices.
                 l3 = input_password  # input_password
             text_file.writelines([l0, l1, " | ", l2, " | ", l3])
             text_file.close()
-            print("The following Information has been saved: L89" + "\n")
+            print("The following Information has been saved: L91" + "\n")
             print("########################################")
             print(Fore.RED + input_url, "|", input_user)
             print("Information Saved to file")
